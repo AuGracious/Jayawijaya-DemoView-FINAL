@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics DemoView</title>
+    <link rel="stylesheet" href="analytics.css">
+</head>
+<body>
+    <header>
+        <h1>
+            <img src="images/Logo BPS.png" alt="Logo BPS" id="toggleNav" style="height: 40px; vertical-align: middle; margin-right: 10px; cursor: pointer;">
+            Jayawijaya DemoView
+        </h1>
+    </header>
+    <div class="container">
+        <nav id="sidebar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="analytics.html" class="active">Analytics</a></li>
+                <li><a href="about me.html">About Me</a></li>
+            </ul>
+        </nav>
+        <main>
+            <div class="card">
+                <h3>Demografi Penduduk Kabupaten Jayawijaya</h3>
+                <p>Platform ini menampilkan data demografi Kabupaten Jayawijaya tahun 2024</p>
+            </div>
+
+            <div class="info-grid">
+                <div class="card">
+                    <h3>Total Penduduk Jayawijaya 2024 (Jiwa)</h3>
+                    <div class="total-population">
+                        <p id="totalPopulationCount">0</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Penduduk Berdasarkan Jenis Kelamin</h3>
+                    <canvas id="genderDistributionChart"></canvas>
+                </div>
+
+                <div class="card">
+                    <h3>Penduduk Berdasarkan Usia</h3>
+                    <canvas id="ageDistributionChart"></canvas>
+                </div>
+
+                <div class="card">
+                    <h3>Jumlah Penduduk (2020-2024)</h3>
+                    <canvas id="populationTrendChart"></canvas>
+                </div>
+
+                <div class="card">
+                    <h3>Status Kawin</h3>
+                    <canvas id="maritalStatusChart"></canvas>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Penduduk Berdasarkan Pekerjaan</h3>
+                <canvas id="jobDistributionChart"></canvas>
+            </div>
+
+            <div class="card">
+                <h3 style="text-align: center;">Sumber Data</h3>
+                <p style="text-align: left;">
+                    Data yang digunakan dalam dashboard ini bersumber dari:
+                </p>
+                <ul style="text-align: left;">
+                    <li>Statistik Kesejahteraan Rakyat Kabupaten Jayawijaya 2024</li>
+                    <li>Proyeksi Penduduk Kabupaten/Kota Provinsi Papua 2020-2035</li>
+                    <li>Produksi Domestik Regional Bruto Kabupaten Jayawijaya Menurut Pengeluaran 2019-2023</li>
+                    <li>Keadaan Ketenagakerjaan Jayawijaya Agustus 2023</li>
+                </ul>
+            </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="scripts/chart.js"></script>
+    <script>
+        document.getElementById('toggleNav').addEventListener('click', function() {
+        document.getElementById('sidebar').classList.toggle('collapsed');
+        document.querySelector('.container').classList.toggle('collapsed');
+        });
+    </script>
+</body>
+</html>
+
+<style>
+    nav.collapsed {
+    width: 0;
+    min-width: 0;
+    padding: 0;
+    } 
+
+    main {
+        flex-grow: 1;
+        padding: 2rem;
+        overflow-y: auto;
+        background-color: #f8f9fa;
+        transition: margin-left 0.3s ease-in-out;
+    }
+
+    .container.collapsed main {
+        margin-left: 0;
+    }
+</style>

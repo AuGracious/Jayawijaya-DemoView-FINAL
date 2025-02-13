@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home DemoView</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+    <header>
+        <h1>
+            <img src="images/Logo BPS.png" alt="Logo BPS" id="toggleNav" style="height: 40px; vertical-align: middle; margin-right: 10px; cursor: pointer;">
+            Jayawijaya DemoView
+        </h1>
+    </header>
+    <div class="container">
+        <nav id="sidebar">
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="analytics.html">Analytics</a></li>
+                <li><a href="about me.html">About Me</a></li>
+            </ul>
+        </nav>
+        <main>
+            <div class="card">
+                <h3>Selamat Datang</h3>
+                <p>Jelajahi berbagai statistik dan analisis untuk mendukung kebutuhan informasi Anda.</p>
+            </div>  
+
+            <!-- Fun Fact Jayawijaya -->
+            <div class="info-grid">
+                <div class="card">
+                    <img src="images/honai.jpg" alt="Honai" class="info-img">
+                    <p><strong>Honai</strong> - Rumah adat suku Dani yang unik dan tahan cuaca dingin.</p>
+                </div>
+                <div class="card">
+                    <img src="images/koteka.jpg" alt="Koteka" class="info-img">
+                    <p><strong>Koteka</strong> - Pakaian tradisional pria Papua yang masih digunakan.</p>
+                </div>
+                <div class="card">
+                    <img src="images/cendrawasih.jpg" alt="Cendrawasih" class="info-img">
+                    <p><strong>Cendrawasih</strong> - Burung khas Papua yang terkenal dengan keindahannya.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Peta Kabupaten Jayawijaya</h3>
+                <div id="map" style="height: 300px;"></div>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="scripts/map.js"></script>
+    <script src="scripts/script.js"></script>
+    <script src="scripts/chart.js"></script>
+    <script>
+        document.getElementById('toggleNav').addEventListener('click', function() {
+        document.getElementById('sidebar').classList.toggle('collapsed');
+        document.querySelector('.container').classList.toggle('collapsed');
+        });
+    </script>
+</body>
+</html>
+
+<style>
+    nav.collapsed {
+    width: 0;
+    min-width: 0;
+    padding: 0;
+    } 
+
+    main {
+        flex-grow: 1;
+        padding: 2rem;
+        overflow-y: auto;
+        background-color: #f8f9fa;
+        transition: margin-left 0.3s ease-in-out;
+    }
+
+    .container.collapsed main {
+        margin-left: 0;
+    }
+</style>
